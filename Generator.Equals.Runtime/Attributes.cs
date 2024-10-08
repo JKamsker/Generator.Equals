@@ -64,7 +64,7 @@ namespace Generator.Equals
 
     [GeneratedCode("Generator.Equals", "1.0.0.0")]
     [Conditional("GENERATOR_EQUALS")]
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Assembly)]
     public class StringEqualityAttribute : Attribute
     {
         public StringComparison ComparisonType { get; }

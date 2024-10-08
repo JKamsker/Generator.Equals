@@ -28,6 +28,7 @@ public class UnitTest1
             using System;
             using Generator.Equals;
 
+            [assembly: StringEqualityAttribute(StringComparison.OrdinalIgnoreCase)]
              namespace Tests;
 
              [Equatable]

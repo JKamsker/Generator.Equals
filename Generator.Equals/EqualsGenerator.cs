@@ -24,6 +24,13 @@ namespace Generator.Equals
                     (syntaxNode, _) => syntaxNode is ClassDeclarationSyntax or RecordDeclarationSyntax or StructDeclarationSyntax,
                     (syntaxContext, ct) => syntaxContext);
 
+            // Listen for StringEqualityAttribute in Generator.Equals at the assembly level.
+            var stringEqualityProvider = context.SyntaxProvider
+                .ForAttributeWithMetadataName(
+                    "Generator.Equals.StringEqualityAttribute",
+                    (syntaxNode, _) => syntaxNode is CompilationUnitSyntax,
+                    (syntaxContext, ct) => syntaxContext);
+
             context.RegisterSourceOutput(provider, (spc, context) => Execute(spc, context));
         }
 
